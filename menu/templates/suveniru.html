@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+    Suveniru
+{% endblock %}
+{% block suv %}
+    <div id="main" class="suveniru-list">
+        <h1>suvenirus</h1>
+        {% for suveniru in suvenirus %}
+            <div class="item">
+                <a href="{{ suveniru.get_absolute_url }}">
+                    <img src="{% if suveniru.image %}{{ suveniru.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                </a>
+                <a href="{{ suveniru.get_absolute_url }}">{{ suveniru.name }}</a>
+                <br>
+                &#8372; {{ suveniru.price }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

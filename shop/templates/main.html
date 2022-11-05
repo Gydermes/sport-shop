@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sport shop</title>
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+</head>
+<body>
+    <header><i><h1><big>Sport shop </big></h1></i></header>
+    <a href=""><h1>Home</h1></a>
+    <a href="form/"><h1>Form</h1></a>
+    <a href="suveniru/"><h1>Suveniru</h1></a>
+    <a href="specials/"><h1>Specials</h1></a>
+    <a href="contact/"><h1>Contact</h1></a>
+
+    </div>
+        <div id="subheader">
+            <div class="cart">
+             {% with total_items=cart|length %}
+                {% if cart|length > 0 %}
+                    Your cart:
+                    <a href="{% url "cart:cart_detail" %}">{{ total_items }} item{{ total_items|pluralize }}, ${{ cart.get_total_price }}</a>
+
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <div id="content">
+        {% block suv %}
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block spe %}
+        {% endblock %}
+    </div>
+    <div id="content">
+        {% block con %}
+        {% endblock %}
+    </div>
+</body>
+</html>

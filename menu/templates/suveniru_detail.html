@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+    {{ suveniru.name }}
+{% endblock %}
+
+{% block suv %}
+    <div class="suveniru-detail">
+        <img src="{% if suveniru.image %}{{ suveniru.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        <h1>{{ suveniru.name }}</h1>
+
+        <p class="price">${{ suveniru.price }}</p>
+        <a href="{% url "cart:cart_add" suveniru.id %}">Add to cart</a>
+
+        {{ suveniru.description|linebreaks }}
+    </div>
+{% endblock %}

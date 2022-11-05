@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+    Specials
+{% endblock %}
+{% block spe %}
+    <div id="main" class="specials-list">
+        <h1>specialss</h1>
+        {% for specials in specialss %}
+            <div class="item">
+                <a href="{{ specials.get_absolute_url }}">
+                    <img src="{% if specials.image %}{{ specials.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+                </a>
+                <a href="{{ specials.get_absolute_url }}">{{ specials.name }}</a>
+                <br>
+                &#8372; {{ specials.price }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

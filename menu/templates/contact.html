@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+    Contact
+{% endblock %}
+{% block con %}
+    <div id="main" class="contact-list">
+        <h1>contacts</h1>
+        {% for contact in contacts %}
+            <div class="item">
+                <a href="{{ contact.get_absolute_url }}">{{ contact.tel }}</a>
+                <br>
+                {{ contact.adress }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

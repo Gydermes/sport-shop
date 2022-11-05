@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}
+    {{ specials.name }}
+{% endblock %}
+
+{% block spe %}
+    <div class="specials-detail">
+        <img src="{% if specials.image %}{{ specials.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}">
+        <h1>{{ specials.name }}</h1>
+
+        <p class="price">${{ specials.price }}</p>
+        <a href="{% url "cart:cart_add" specials.id %}">Add to cart</a>
+
+        {{ specials.description|linebreaks }}
+    </div>
+{% endblock %}
